@@ -20,7 +20,7 @@ import "./index.css";
 
 function Square(props) {
   return (
-    <button className="square" onClick={() => this.props.onClick()}>
+    <button className="square" onClick={props.onClick}>
       {props.faizan}
     </button>
   );
