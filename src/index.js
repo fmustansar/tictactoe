@@ -31,6 +31,7 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      xIsNext: true,
     };
   }
   renderSquare(i) {
@@ -48,7 +49,12 @@ class Board extends React.Component {
   handleClick(index) {
     /* FM: Creating copy of the squares array by using slice */
     const squares = this.state.squares.slice();
-    squares[index] = "X";
+    if (this.state.xIsNext) {
+      squares[index] = "X";
+    } else {
+      squares[index] = "O";
+    }
+    this.state.xIsNext = !this.state.xIsNext;
     this.setState({ squares: squares });
   }
 
